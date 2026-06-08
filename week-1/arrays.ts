@@ -43,12 +43,29 @@ const findSumAndProductOfMinMax = (arr: number[]): [number, number] => {
 4. Find Minimum steps to make sum and the product of all elements of array non-zero
 Problem link: https://www.geeksforgeeks.org/dsa/minimum-steps-to-make-sum-and-the-product-of-all-elements-of-array-non-zero/
 */
+const stepsToNonZero = (arr: number[]): number => {
+    let steps = 0, total = 0;
+    
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 0) {
+            steps++;
+            total++;
+        } else steps += arr[i];
+    }
+
+    if (total === 0) steps++;
+
+    return steps;
+}
 
 /*
 5. Find Minimum steps required to reduce all the elements of the array to zero
 Problem link: https://www.geeksforgeeks.org/dsa/minimum-steps-required-to-reduce-all-the-elements-of-the-array-to-zero/
  */
-
+const minimumStepsToZero = (arr: number[]): number => {
+    const [_, maxItem] = findMinMax(arr);
+    return maxItem;
+}
 /*
 6. Sort 0s, 1s and 2s 
 Problem link: https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
