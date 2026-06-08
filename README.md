@@ -1,0 +1,1 @@
+Repository for submitting assignments given during the Frontend cohort. These are divided on weekly basis with their respective codes.
