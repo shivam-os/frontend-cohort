@@ -74,14 +74,47 @@ Problem link: https://www.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-
 /*
 7. Find Subarray with Given Sum
 Problem link: https://www.geeksforgeeks.org/dsa/find-subarray-with-given-sum/
+TODO: Optimize
 */
+const getSubarrayWithSum = (arr: number[], target: number) => {
+    for (let i = 0; i < arr.length; i++) {
+        let subArraySum = arr[i];
+        for (let j = i + 1; j < arr.length; j++) {
+            subArraySum += arr[j];
+            if (subArraySum === target) return [i, j];
+        }
+    }
+    return [-1];
+}
 
 /*
 8. Rotate Array by One
 Problem link: https://www.geeksforgeeks.org/problems/cyclically-rotate-an-array-by-one2614/1
 */
+const rotateArrayByOne = (arr: number[]) => {
+    const n = arr.length;
+    const lastItem = arr[n - 1];
+
+    for (let i = n - 1; i >= 0; i--) {
+        arr[i] = arr[i - 1];
+    }
+
+    arr[0] = lastItem;
+}
 
 /*
 9. Count pairs with given sum
 Problem link: https://www.geeksforgeeks.org/problems/count-pairs-with-given-sum--150253/1
+TODO: Optimize
 */
+const countPairsForSum = (arr: number[], target: number) => {
+    let total = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if ((arr[i] + arr[j] === target)) total++;
+        }
+    }
+
+    return total;
+}
